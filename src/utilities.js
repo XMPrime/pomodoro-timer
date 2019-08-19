@@ -1,8 +1,7 @@
 let countdown;
-let isTicking = this.props.isTicking;
 let timeLeft;
 
-export const timer = seconds => {
+export const timer = (seconds, tickingStatus) => {
   clearInterval(countdown); // clear any existing timers
   //   document.getElementById("pause").disabled = false;
   //   pauseResume.addEventListener("click", pause);
@@ -13,7 +12,8 @@ export const timer = seconds => {
 
   countdown = setInterval(() => {
     const secondsLeft = Math.round(then - Date.now()) / 1000;
-    if (isTicking) {
+    if (tickingStatus) {
+      console.log("isTicking");
       if (secondsLeft < 0) {
         clearInterval(countdown);
         // displayTimeLeft(0);

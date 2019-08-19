@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { switchMode } from "../actions/actions";
-import { displayTimeLeft } from "../utilities";
+import { timer } from "../utilities";
 
 class Timer extends Component {
   switchMode = () => {
@@ -13,7 +13,7 @@ class Timer extends Component {
       <div>
         <h1>{this.props.workMode ? "Time until break!" : "Time until work!"}</h1>
         <h1 className={this.props.workMode ? "workTimer" : "breakTimer"} onClick={() => this.props.switchMode()}>
-          {displayTimeLeft(this.props.timerSeconds)}
+          {timer(25, this.props.isTicking)}
         </h1>
       </div>
     );
