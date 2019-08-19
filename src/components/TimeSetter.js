@@ -17,8 +17,6 @@ class TimeSetter extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div>
         <h1>{this.props.name}</h1>
@@ -37,8 +35,8 @@ class TimeSetter extends Component {
 }
 
 const mapStateToProps = state => ({
-  workTime: state.workTime,
-  breakTime: state.breakTime
+  workTime: state.timeSetterReducers.workTime,
+  breakTime: state.timeSetterReducers.breakTime
 });
 
 const mapDispatchToProps = {

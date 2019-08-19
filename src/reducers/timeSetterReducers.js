@@ -8,12 +8,14 @@ const initialState = {
 const timeSetterReducers = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_WORK:
-      console.log(state);
       return {
         ...state,
         workTime: state.workTime + 1
       };
     case DECREMENT_WORK:
+      if (state.workTime === 0) {
+        return state;
+      }
       return {
         ...state,
         workTime: state.workTime - 1
@@ -24,7 +26,9 @@ const timeSetterReducers = (state = initialState, action) => {
         breakTime: state.breakTime + 1
       };
     case DECREMENT_BREAK:
-      console.log(state);
+      if (state.breakTime === 0) {
+        return state;
+      }
       return {
         ...state,
         breakTime: state.breakTime - 1
