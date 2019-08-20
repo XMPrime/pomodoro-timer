@@ -1,8 +1,7 @@
 import { SWITCH_MODE } from "../actions/actions";
 
 const initialState = {
-  workMode: true,
-  timerSeconds: 25 * 60
+  workMode: true
 };
 
 const timerReducers = (state = initialState, action) => {
@@ -19,7 +18,6 @@ const timerReducers = (state = initialState, action) => {
           workMode: true
         };
       }
-
     default:
       return state;
   }

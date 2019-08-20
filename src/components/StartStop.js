@@ -7,7 +7,7 @@ class StartStop extends Component {
     this.props.startStopToggle();
   };
   render() {
-    return <div onClick={() => this.props.startStopToggle()}>{this.props.isTicking ? "STOP" : "START"}</div>;
+    return <div onClick={this.startStopToggle}>{this.props.isTicking ? "STOP" : "START"}</div>;
   }
 }
 

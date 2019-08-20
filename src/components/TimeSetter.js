@@ -17,26 +17,40 @@ class TimeSetter extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <h1>{this.props.name}</h1>
-        <span name={`+${this.props.name}`} onClick={this.props.name === "Work Time" ? this.incrementWork : this.incrementBreak}>
-          +
-        </span>
+    if (!this.props.isTicking) {
+      return (
+        <div>
+          <h1>{this.props.name}</h1>
+          <span name={`+${this.props.name}`} onClick={this.props.name === "Work Time" ? this.incrementWork : this.incrementBreak}>
+            +
+          </span>
 
-        {this.props.name === "Work Time" ? this.props.workTime : this.props.breakTime}
+          {this.props.name === "Work Time" ? this.props.workTime : this.props.breakTime}
 
-        <span name={`-${this.props.name}`} onClick={this.props.name === "Work Time" ? this.decrementWork : this.decrementBreak}>
-          -
-        </span>
-      </div>
-    );
+          <span name={`-${this.props.name}`} onClick={this.props.name === "Work Time" ? this.decrementWork : this.decrementBreak}>
+            -
+          </span>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>{this.props.name}</h1>
+          <span name={`+${this.props.name}`}>+</span>
+
+          {this.props.name === "Work Time" ? this.props.workTime : this.props.breakTime}
+
+          <span name={`-${this.props.name}`}>-</span>
+        </div>
+      );
+    }
   }
 }
 
 const mapStateToProps = state => ({
   workTime: state.timeSetterReducers.workTime,
-  breakTime: state.timeSetterReducers.breakTime
+  breakTime: state.timeSetterReducers.breakTime,
+  isTicking: state.startStopReducer.isTicking
 });
 
 const mapDispatchToProps = {
