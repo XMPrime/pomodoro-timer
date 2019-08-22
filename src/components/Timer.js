@@ -44,56 +44,6 @@ class Timer extends Component {
   }
 
   render() {
-    // const displayTimeLeft = seconds => {
-    //   let secondsLeft = seconds;
-    //   const minutes = Math.floor(seconds / 60);
-    //   secondsLeft = Math.round(secondsLeft % 60);
-
-    //   const countdown = setInterval(() => {
-    //     if (this.props.isTicking) {
-    //       if (this.props.workTimerSeconds <= 0 || this.props.breakTimerSeconds <= 0) {
-    //         this.switchMode();
-    //         this.reset();
-    //         this.props.startStopToggle();
-
-    //         return;
-    //       }
-    //     } else {
-    //       clearInterval(countdown);
-    //       return;
-    //     }
-    //     this.props.workMode ? this.workTimeTick() : this.breakTimeTick();
-    //     clearInterval(countdown);
-    //   }, 1000);
-
-    //   const display = `${minutes < 10 ? "0" : ""}${minutes}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
-
-    //   return display;
-    // };
-    // let countdown;
-
-    // function timer(seconds, isTicking, workTimeTick, breakTimeTick) {
-    //   clearInterval(countdown); // clear any existing timers
-
-    //   countdown = setInterval(() => {
-    //     if (isTicking) {
-    //       if (seconds < 0) {
-    //         clearInterval(countdown);
-    //         this.switchMode();
-    //         this.reset();
-    //         return;
-    //       }
-    //       console.log(this);
-    //       isTicking ? workTimeTick() : breakTimeTick();
-    //     } else {
-    //       clearInterval(countdown);
-    //       return;
-    //     }
-    //   }, 1000);
-    // }
-
-    // timer(this.props.workTimerSeconds, this.props.isTicking, this.workTimeTick, this.breakTimeTick);
-
     return (
       <div>
         <h1>{this.props.workMode ? "Time until break!" : "Time until work!"}</h1>
@@ -110,8 +60,6 @@ const mapStateToProps = state => ({
   breakTime: state.timeSetterReducers.breakTime,
   workTimerSeconds: state.timeSetterReducers.workTimerSeconds,
   breakTimerSeconds: state.timeSetterReducers.breakTimerSeconds,
-  // workTimeTick: state.timeSetterReducers.workTimeTick,
-  // breakTimeTick: state.timeSetterReducers.breakTimeTick,
   isTicking: state.startStopReducer.isTicking,
   workMode: state.timerReducers.workMode
 });
