@@ -12,7 +12,7 @@ class Reset extends Component {
 }
 
 const mapStateToProps = state => ({
-  rerset: state.timeSetterReducers.reset
+  reset: state.timeSetterReducers.reset
 });
 
 const mapDispatchToProps = {
